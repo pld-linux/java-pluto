@@ -7,7 +7,7 @@
 
 %define		apiver	1.0
 %define		srcname portletapi10
-Summary:	portlet api
+Summary:	Pluto portlet api
 Name:		java-portletapi10
 Version:	%{apiver}.1
 Release:	0.1
@@ -24,30 +24,19 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Pluto libraries
-
-%description -l pl.UTF-8
-Pluto libraries
-
-%package portletapi
-Summary:	Portlet api
-Group:		Libraries/Java
-Requires:	jpackage-utils
-
-%description portletapi
-Portlet api
+Interfaces for pluto portlet implementation.
 
 %package javadoc
-Summary:	Online manual for pluto libraries
-Summary(pl.UTF-8):	Dokumentacja online do bibliotek pluto
+Summary:	Online manual for portletapi
+Summary(pl.UTF-8):	Dokumentacja online do portletapi
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description javadoc
-Documentation for pluto libraries.
+Documentation for portletapi.
 
 %description javadoc -l pl.UTF-8
-Dokumentacja do bibliotek pluto.
+Dokumentacja do portletapi.
 
 %prep
 %setup -q -n pluto-%{version}
