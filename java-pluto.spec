@@ -10,7 +10,7 @@
 Summary:	Pluto portlet api
 Name:		java-portletapi10
 Version:	%{apiver}.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	pluto-%{version}.tar.bz2
@@ -20,6 +20,7 @@ BuildRequires:	ant
 %{?with_java_sun:BuildRequires:	java-sun}
 %{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
 Requires:	jpackage-utils
+Provides:	portletapi = 1.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
