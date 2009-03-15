@@ -10,7 +10,7 @@
 Summary:	Pluto portlet api
 Name:		java-portletapi10
 Version:	%{apiver}.1
-Release:	0.1
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	pluto-%{version}.tar.bz2
