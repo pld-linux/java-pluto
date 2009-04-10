@@ -3,6 +3,12 @@
 %bcond_without	javadoc		# don't build javadoc
 %bcond_with	java_sun	# build using java-sun
 
+%if "%{pld_release}" == "ti"
+%bcond_without	java_sun	# build with gcj
+%else
+%bcond_with	java_sun	# build with java-sun
+%endif
+
 %include	/usr/lib/rpm/macros.java
 
 %define		apiver	1.0
@@ -19,6 +25,10 @@ URL:		http://portals.apache.org/pluto/
 BuildRequires:	ant
 %{?with_java_sun:BuildRequires:	java-sun}
 %{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
+BuildRequires:	jpackage-utils
+BuildRequires:	rpm >= 4.4.9-56
+BuildRequires:	rpm-javaprov
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
 Provides:	portletapi = %{apiver}
 Provides:	java(portlet) = %{apiver}
@@ -48,7 +58,6 @@ Dokumentacja do portletapi.
 cd api
 %ant \
     -Dbuild.sysclasspath=only \
-    %{!?with_java_sun:-Dbuild.compiler=extJavac} \
     jar
 
 %{?with_javadoc:%ant -Dnoget=1 javadoc}
