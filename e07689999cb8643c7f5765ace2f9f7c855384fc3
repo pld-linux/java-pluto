@@ -1,0 +1,2 @@
+- P: java(portlet) = %%{apiver}
+- note: P: portletapi will be removed in next release
