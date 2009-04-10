@@ -20,7 +20,8 @@ BuildRequires:	ant
 %{?with_java_sun:BuildRequires:	java-sun}
 %{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
 Requires:	jpackage-utils
-Provides:	portletapi = 1.0
+Provides:	portletapi = %{apiver}
+Provides:	java(portlet) = %{apiver}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,8 +58,11 @@ cd ..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
-install api/target/portlet-api-%{apiver}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10-%{apiver}.jar
-ln -s portletapi10-%{apiver}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10.jar
+install api/target/portlet-api-%{apiver}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10-%{version}.jar
+ln -s portletapi10-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10.jar
+
+# P: java(portlet) = 1.0
+ln -s portletapi10-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portlet-api-%{apiver}.jar
 
 # javadoc
 %if %{with javadoc}
