@@ -16,7 +16,7 @@
 Summary:	Pluto portlet api
 Name:		java-pluto
 Version:	%{apiver}.1
-Release:	3
+Release:	4
 License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	%{srcname}-%{version}.tar.bz2
