@@ -12,14 +12,14 @@
 %include	/usr/lib/rpm/macros.java
 
 %define		apiver	1.0
-%define		srcname portletapi10
+%define		srcname pluto
 Summary:	Pluto portlet api
-Name:		java-portletapi10
+Name:		java-pluto
 Version:	%{apiver}.1
 Release:	3
 License:	Apache v2.0
 Group:		Libraries/Java
-Source0:	pluto-%{version}.tar.bz2
+Source0:	%{srcname}-%{version}.tar.bz2
 # Source0-md5:	d6355e173ebda88b4a2da4f7df688875
 URL:		http://portals.apache.org/pluto/
 BuildRequires:	ant
@@ -30,8 +30,8 @@ BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
-Provides:	portletapi = %{apiver}
-Provides:	java(portlet) = %{apiver}
+Provides:	java(Portlet) = %{apiver}
+Obsoletes:	java-portletapi10
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,11 +67,11 @@ cd ..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
-install api/target/portlet-api-%{apiver}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10-%{version}.jar
-ln -s portletapi10-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portletapi10.jar
+install api/target/portlet-api-%{apiver}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 
 # P: java(portlet) = 1.0
-ln -s portletapi10-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portlet-api-%{apiver}.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portlet-api-%{apiver}.jar
 
 # javadoc
 %if %{with javadoc}
