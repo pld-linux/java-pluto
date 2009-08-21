@@ -72,6 +72,7 @@ ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 
 # P: java(portlet) = 1.0
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portlet-api-%{apiver}.jar
+ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/portlet-api.jar
 
 # javadoc
 %if %{with javadoc}
