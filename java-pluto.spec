@@ -1,7 +1,6 @@
 #
 # Conditional build:
 %bcond_without	javadoc		# don't build javadoc
-%bcond_with	java_sun	# build using java-sun
 
 %include	/usr/lib/rpm/macros.java
 
@@ -10,7 +9,7 @@
 Summary:	Pluto portlet api
 Name:		java-pluto
 Version:	%{apiver}.1
-Release:	4
+Release:	5
 License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	%{srcname}-%{version}.tar.bz2
@@ -81,7 +80,8 @@ ln -nfs %{srcname}-%{version} %{_javadocdir}/%{srcname}
 
 %files
 %defattr(644,root,root,755)
-%{_javadir}/*.jar
+%{_javadir}/%{srcname}.jar
+%{_javadir}/%{srcname}-%{version}.jar
 
 %if %{with javadoc}
 %files javadoc
