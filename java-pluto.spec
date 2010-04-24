@@ -80,6 +80,8 @@ ln -nfs %{srcname}-%{version} %{_javadocdir}/%{srcname}
 
 %files
 %defattr(644,root,root,755)
+%{_javadir}/portlet-api-%{apiver}.jar
+%{_javadir}/protlet-api.jar
 %{_javadir}/%{srcname}.jar
 %{_javadir}/%{srcname}-%{version}.jar
 
