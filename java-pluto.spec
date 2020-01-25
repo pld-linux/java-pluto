@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	javadoc		# don't build javadoc
 
-%include	/usr/lib/rpm/macros.java
 
 %define		apiver	1.0
 %define		srcname pluto
